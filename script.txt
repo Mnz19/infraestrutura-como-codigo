@@ -1,0 +1,42 @@
+#!/bin/bash
+
+groupadd GRP_ADM
+
+groupadd GRP_VEN
+
+groupadd GRP_SEC
+
+useradd carlos -c "Funcionario ADM" -m -s /bin/bash -p $(openssl passwd 123) -G GRP_ADM
+
+useradd maria -c "Funcionario ADM" -m -s /bin/bash -p $(openssl passwd 123) -G GRP_ADM
+
+useradd joao -c "Funcionario ADM" -m -s /bin/bash -p $(openssl passwd 123) -G GRP_ADM
+
+useradd debora -c "Funcionario VENDAS" -m -s /bin/bash -p $(openssl passwd 123) -G GRP_VEN
+
+useradd sebastiana -c "Funcionario VENDAS" -m -s /bin/bash -p $(openssl passwd 123) -G GRP_VEN
+
+useradd roberto -c "Funcionario VENDAS" -m -s /bin/bash -p $(openssl passwd 123) -G GRP_VEN
+
+useradd josefina -c "Funcionario SEC" -m -s /bin/bash -p $(openssl passwd 123) -G GRP_SEC
+
+useradd amanda -c "Funcionario SEC" -m -s /bin/bash -p $(openssl passwd 123) -G GRP_SEC
+
+useradd rogerio -c "Funcionario SEC" -m -s /bin/bash -p $(openssl passwd 123) -G GRP_SEC
+
+
+mkdir /projeto/publico
+chmod 777 /projeto/publico
+
+mkdir /projeto/adm
+chmod 770 /projeto/adm
+chown root:GRP_ADM /projeto/adm
+
+mkdir /projeto/ven
+chmod 770 /projeto/ven
+chown root:GRP_VEN /projeto/ven
+
+
+mkdir /projeto/sec
+chmod 770 /projeto/sec
+chown root:GRP_SEC /projeto/sec
